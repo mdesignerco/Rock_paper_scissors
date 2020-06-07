@@ -1,0 +1,434 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+$font-family2: 'Roboto', sans-serif;
+$font-family: 'Acme', sans-serif;
+$yellow: #c48e30;
+$black: #0a1c21;
+$black-2: #131313;
+$white: #ffffff;
+$gray1: #f2f2f2;
+$gray2: #d0d4d5;
+$negative: #6ec477;
+$punto: 1rem;
+
+*{
+    padding: 0;
+    margin: 0 ;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    font-family: $font-family;
+    background-color: #c48e30;
+  }
+
+  .img-logo {
+      height: 82px;
+      width: 100%;
+      background-image: url('/assets/img/logo_destktop.svg');
+      background-position: center center;
+      background-repeat: no-repeat;
+        background-size: contain;
+  }
+  
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: $punto * 2;
+    height: 80%;
+    width: 80%;
+    background-color: $white;
+    border-radius: $punto / 2;
+    box-shadow: 0px 0px 20px 5px rgba($black-2, 0.08);
+    &__div-title {
+        width: 100%;
+        text-align: center;
+        img {
+            width: auto;
+            height: auto;
+        }
+    }
+    &__main {
+        &-content {
+            order: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+        &-player {
+            order: 2;
+            height: auto;
+            .container__icons-img{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: $punto / 3;
+                cursor: pointer;
+                border-radius: 50%;
+                transition: 200ms background-color ease-in;
+                &:hover {
+                    background-color: $negative;
+                }
+            }
+        }
+        &-icons {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: $punto / 3;
+            list-style: none;
+        }
+        &-computer {
+            order: 3;
+        }
+        
+    } 
+    &__main-result {
+        order: 2;
+        display: flex;
+        span {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 0 $punto * 4;
+            font-size: $punto * 2;
+        }
+    }
+
+    &__result {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: $punto * 9;
+        height: $punto * 9;
+        background-color: $gray1;
+        border: 1px solid $gray2;
+        border-radius: $punto / 2;
+    }
+}
+
+footer {
+    padding: $punto / 2 ;
+    a {
+        font-family: $font-family2;
+        font-size: 12px;
+        color: $white;
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
+
+.ease-out {
+    opacity: 0;
+    animation: salida 500ms ease-out ;
+}
+
+.ease-in {
+    opacity: 1;
+    animation: entrada 500ms ease-out ;
+}
+
+.ease-in-right {
+    opacity: 1;
+    animation: entradaRight 500ms ease-out ;
+}
+
+.modal {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba( $black-2 , 0.5);
+    &__div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: auto;
+        width: 50%;
+        padding: $punto /2;
+        background-color: $white;
+        border-radius: $punto / 2;
+        &-content {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        &-steps {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: $punto / 2 0;
+            h4 {
+                padding: $punto /2;
+            }
+            ol {
+                font-size: 14px;
+                font-weight: 400;
+            }
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: $punto;
+        }
+        h3 {
+            margin-bottom: $punto / 2;
+        }
+        button {
+            padding: $punto /2 $punto;
+            font-size: 1em;
+            font-weight: bold;
+            background-color: $negative;
+            border: none;
+            border-radius: $punto / 2;
+            cursor: pointer;
+        }
+    }
+   
+}
+
+.navOnboarding {
+    position: relative;
+    
+    &_ul {
+        display: flex;
+        padding: 0;
+        margin: 0;
+        margin-bottom: $punto;
+        list-style: none;
+        li {
+            padding: 0;
+            margin: 0;
+            margin-left: $punto / 4;
+            border-radius: 100%;
+            cursor: pointer;
+            a {
+                position: relative;
+                color: $black-2;
+                font-size: $punto ;
+                text-decoration: none;
+            }
+        }
+    }
+}
+.onboarding {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 150px;
+    height: 120px;
+    list-style: none;
+    li {
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin: auto;    
+        opacity: 0;
+        transition: opacity 0.5s;
+        &::before{
+            content: '';
+        }
+        &::after{
+            content: '';
+        }
+        &:first-child {
+            opacity: 1;
+        }
+        &:target {
+            opacity: 1;
+        }      
+    }
+}
+
+
+.text-result{
+    font-size: $punto * 2;
+    text-align: center;
+    margin-bottom: $punto;
+}
+
+.green {
+    color: $negative;
+}
+
+.red {
+    color: red;
+}
+
+.orange {
+    color: orange;
+}
+
+
+@media (max-width: 800px) {
+    .container{
+        width: 90%;
+        height: 90%;
+        padding: $punto;
+        &__main {
+            &-content {
+                order: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                padding: $punto 0 ;
+                max-width: 100%;
+                height: 100%;
+            }
+            &-player {
+                order: 4;
+                height: auto;
+                .container__icons-img{
+                    padding: 0;
+                }
+            }
+            &-result {
+                order: 3;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+            &-icons {
+                width: 100%;
+                flex-direction: row;
+                justify-content: center;
+               
+                li {
+                    padding-right: $punto / 3 ;
+                }
+                img {
+                    width: $punto * 3.5;
+                    height: auto;
+                }
+            }
+            &-computer {
+                order: 2;
+                >.contaner__main-icons {
+                    img {
+                        width: $punto * 2.5;
+                    }
+                }
+            }
+        }
+    }
+    .img-logo {
+        height: 82px;
+        background-image: url('/assets/img/logo_mobile.svg');
+        background-position: left center;
+    }
+    .modal {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba( $black-2 , 0.5);
+        &__div {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            height: auto;
+            width: 90%;
+            padding: $punto /2;
+            background-color: $white;
+            border-radius: $punto / 2;
+            &-content {
+                width: 100%;
+            }
+            &-steps {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+                width: 100%;
+                padding: $punto / 2 0;
+                h4 {
+                    padding: $punto /2;
+                }
+                ol {
+                    margin-left: $punto ;
+                    font-size: 14px;
+                    font-weight: 400;
+                }
+            }
+            h1 {
+                text-align: center;
+                margin-bottom: $punto;
+            }
+            h3 {
+                margin-bottom: $punto / 2;
+            }
+            button {
+                padding: $punto /2 $punto;
+                font-size: 1em;
+                font-weight: bold;
+                background-color: $negative;
+                border: none;
+                border-radius: $punto / 2;
+                cursor: pointer;
+            }
+        }
+       
+    }
+    
+}
+
+
+@keyframes salida {
+    from {
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+    to {
+        transform: translate($punto, $punto);
+        opacity: 0;
+    }
+}
+
+
+
+
+@keyframes entradaRight {
+    from {
+        transform: translate($punto * 2, -$punto * 2);
+        opacity: 0;
+    }
+    to {
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+}
+
+@keyframes entrada {
+    from {
+        transform: translate(-$punto * 2, -$punto * 2);
+        opacity: 0;
+    }
+    to {
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+}
