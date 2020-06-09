@@ -190,7 +190,7 @@ function show( message , classVar ) {
 
 function result( message , classVar ) {
     setTimeout(()=>{
-        modal_title.innerText = 'youcan';
+        modal_title.innerText = '';
         modal_subtitle.innerText = '';
         modal_content.innerHTML = `<h1 class="text-result ${classVar}">${message}</h1>`;
         button.innerText = 'try again!';
