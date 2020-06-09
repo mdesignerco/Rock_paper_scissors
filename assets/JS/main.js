@@ -13,19 +13,59 @@ const modal_title = document.getElementById('modal_title');
 const modal_subtitle = document.getElementById('modal_subtitle');
 const modal_content = document.getElementById('modal_content');
 
-const nameImages     = ['rock','paper','spock','lizard', 'scissors'];
+const nameImages  = ['rock','paper','spock','lizard', 'scissors'];
 const rockImg     = 'rock';
 const paperImg    = 'paper';
 const spockImg    = 'spock';
 const lizardImg   = 'lizard';
 const scissorsImg = 'scissors';
 const computerImg = 'computer';
-const onboarding = ['Lizard_devours_paper', 'Lizard_poisons_spock','Paper_cover_stone', 'Paper_disallows_Spock','Paper_cover_stone', 'Scissors_decapitate_lizard','Spock_break_scissors', 'Spock_vaporizess_stone', 'Stone_crushes_lizard', 'Stone_crushes_scissors'  ]
+const onboarding  = [{
+                        id: 1,
+                        name:'Lizard_devours_paper'
+                    },
+                    {
+                        id: 2,
+                        name:'Paper_cover_stone'
+                    },
+                    {
+                        id: 3,
+                        name:'Paper_disallows_Spock'
+                    },
+                    {
+                        id: 4,
+                        name:'Paper_cover_stone'
+                    },
+                    {
+                        id: 5,
+                        name: 'Scissors_decapitate_lizard'
+                    },
+                    {
+                        id: 6,
+                        name:'Spock_break_scissors'
+                    },
+                    {
+                        id: 7,
+                        name:'Spock_vaporizess_stone'
+                    },
+                    {
+                        id: 8,
+                        name:'Stone_crushes_lizard'
+                    },
+                    {
+                        id: 9,
+                        name:'Stone_crushes_scissors'
+                    },
+                    {
+                        id: 10,
+                        name: 'Lizard_poisons_spock'
+                    }
+                     ]
 
 const navOnboarding = `<nav class="navOnboarding">
                             <ul class="navOnboarding_ul">
                                 ${
-                                    onboarding.map( (onboard , index)   => `<li><a href="#slide${ index }">${ index + 1 }</a></li>` ) 
+                                    onboarding.map( onboard  => `<li><a href="#slide${onboard.id}">${onboard.id}</a></li>` ) 
                                 }
                             </ul>
                         </nav>`
@@ -35,7 +75,7 @@ const windowWelcome = ` <div class="modal__div-steps">
                             <h4>You have 10 choices to win</h4>
                             <ul class="onboarding">
                                 ${
-                                    onboarding.map( (  onboard, index ) => `<li id="slide${ index }" ><img  class="selected" src="/assets/img/onboarding/${ onboard }.jpg" alt="${ onboard }"></li>` ) 
+                                    onboarding.map( onboard=> `<li id="slide${ onboard.id }" ><img  class="selected" src="/assets/img/onboarding/${ onboard.name }.jpg" alt="${ onboard.name }"></li>` ) 
                                 }
                             </ul>
                             ${navOnboarding}
