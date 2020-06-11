@@ -60,7 +60,7 @@ const onboarding  = [{
                         id: 10,
                         name: 'Lizard_poisons_spock'
                     }
-                     ]
+                    ]
 
 const navOnboarding = `<nav class="navOnboarding">
                             <ul class="navOnboarding_ul">
@@ -208,10 +208,7 @@ function clearScreen() {
         }
         player.innerHTML ='';
         computer.innerHTML ='';
-    
 }
-
-    
 
 
 
